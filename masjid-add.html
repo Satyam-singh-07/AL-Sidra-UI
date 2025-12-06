@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Masjid - Al Sidra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .form-section h5 {
+            color: #198754;
+            border-bottom: 2px solid #198754;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .file-upload {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .file-upload:hover {
+            border-color: #198754;
+            background-color: rgba(25, 135, 84, 0.05);
+        }
+        .file-upload i {
+            font-size: 48px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        .file-preview {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        .location-map {
+            height: 200px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            margin-top: 15px;
+        }
+        .required-label:after {
+            content: " *";
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar-wrapper"></div>
+        <div id="page-content-wrapper" class="d-flex flex-column min-vh-100">
+            <div id="header-container"></div>
+            
+            <div class="container-fluid p-4">
+                <!-- Page Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="text-success fw-bold mb-1">Add New Masjid</h2>
+                        <p class="text-muted mb-0">Register a new mosque or madarsa in the system</p>
+                    </div>
+                    <div>
+                        <a href="masjid.html" class="btn btn-outline-secondary me-2">
+                            <i class="fas fa-arrow-left me-2"></i>Back to List
+                        </a>
+                        <button type="submit" form="masjidForm" class="btn btn-success">
+                            <i class="fas fa-save me-2"></i>Save Masjid
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Steps -->
+                <!-- <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="steps">
+                            <div class="step active">
+                                <div class="step-circle">1</div>
+                                <div class="step-label">Basic Info</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-circle">2</div>
+                                <div class="step-label">Location</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-circle">3</div>
+                                <div class="step-label">Documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Main Form -->
+                <form id="masjidForm" class="needs-validation" novalidate>
+                    <!-- Section 1: Basic Information -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-info-circle me-2"></i>Basic Information</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="masjidName" class="form-label required-label">Masjid/Madarsa Name</label>
+                                <input type="text" class="form-control" id="masjidName" required 
+                                       placeholder="Enter masjid or madarsa name">
+                                <div class="invalid-feedback">
+                                    Please enter masjid name.
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="col-md-6 mb-3">
+                                <label for="masjidType" class="form-label required-label">Type</label>
+                                <select class="form-select" id="masjidType" required>
+                                    <option value="" selected disabled>Select type</option>
+                                    <option value="masjid">Masjid (Mosque)</option>
+                                    <option value="madarsa">Madarsa (Islamic School)</option>
+                                    <option value="center">Islamic Center</option>
+                                    <option value="dargah">Dargah (Shrine)</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select masjid type.
+                                </div>
+                            </div> -->
+                            
+                            <div class="col-md-12 mb-3">
+                                <label for="address" class="form-label required-label">Complete Address</label>
+                                <textarea class="form-control" id="address" rows="3" required 
+                                          placeholder="Enter full address with landmark"></textarea>
+                                <div class="invalid-feedback">
+                                    Please enter complete address.
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="community" class="form-label required-label">Community</label>
+                                <select class="form-select" id="community" required>
+                                    <option value="" selected disabled>Select community</option>
+                                    <option value="sunni">Sunni</option>
+                                    <option value="shia">Shia</option>
+                                    <option value="ahmadiyya">Ahmadiyya</option>
+                                    <option value="sufi">Sufi</option>
+                                    <option value="salafi">Salafi</option>
+                                    <option value="deobandi">Deobandi</option>
+                                    <option value="barelvi">Barelvi</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select community.
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="status" class="form-label required-label">Status</label>
+                                <select class="form-select" id="status" required>
+                                    <option value="active" selected>Active</option>
+                                    <option value="pending">Pending Verification</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Location Details -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-map-marker-alt me-2"></i>Location Details</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="latitude" class="form-label">Latitude</label>
+                                <div class="input-group">
+                                    <input type="number" step="any" class="form-control" id="latitude" 
+                                           placeholder="e.g., 28.6139">
+                                    <button class="btn btn-outline-secondary" type="button" 
+                                            onclick="getCurrentLocation()">
+                                        <i class="fas fa-location-crosshairs"></i>
+                                    </button>
+                                </div>
+                                <small class="text-muted">Click the location icon to get current coordinates</small>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="longitude" class="form-label">Longitude</label>
+                                <input type="number" step="any" class="form-control" id="longitude" 
+                                       placeholder="e.g., 77.2090">
+                            </div>
+                            
+                            <!-- <div class="col-12">
+                                <label class="form-label">Map Preview</label>
+                                <div class="location-map">
+                                    <i class="fas fa-map fa-3x me-3"></i>
+                                    <div>
+                                        <h6>Location Map</h6>
+                                        <small>Will be shown when coordinates are entered</small>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Documents -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-file-alt me-2"></i>Documents</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <label class="form-label required-label">Donation Passbook</label>
+                                <div class="file-upload" onclick="document.getElementById('passbookFile').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h5>Upload Passbook Copy</h5>
+                                    <p class="text-muted">Click to upload or drag and drop</p>
+                                    <small class="text-muted">PDF, JPG, PNG files up to 5MB</small>
+                                </div>
+                                <input type="file" id="passbookFile" class="d-none" accept=".pdf,.jpg,.jpeg,.png">
+                                
+                                <!-- File Preview -->
+                                <div id="filePreview" class="file-preview d-none">
+                                    <div class="alert alert-success d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="fas fa-file-pdf text-danger me-2"></i>
+                                            <span id="fileName">donation_passbook.pdf</span>
+                                            <small class="text-muted ms-2" id="fileSize">(2.4 MB)</small>
+                                        </div>
+                                        <button type="button" class="btn-close" onclick="removeFile()"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="regNumber" class="form-label">Registration Number</label>
+                                <input type="text" class="form-control" id="regNumber" 
+                                       placeholder="If registered with government">
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="regDate" class="form-label">Registration Date</label>
+                                <input type="date" class="form-control" id="regDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-section">
+                        <div class="d-flex justify-content-between">
+                            <a href="masjid.html" class="btn btn-outline-secondary">
+                                <i class="fas fa-times me-2"></i>Cancel
+                            </a>
+                            <div>
+                                <button type="reset" class="btn btn-outline-danger me-2">
+                                    <i class="fas fa-redo me-2"></i>Reset Form
+                                </button>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-save me-2"></i>Save Masjid
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <footer id="footer-container"></footer>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-check-circle me-2"></i>Success!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="fas fa-mosque fa-4x text-success mb-3"></i>
+                    <h4 class="mb-3">Masjid Added Successfully!</h4>
+                    <p class="text-muted">The masjid has been registered in the system.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add Another</button>
+                    <a href="masjid.html" class="btn btn-success">View All Masjids</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Form Validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    } else {
+                        event.preventDefault()
+                        var successModal = new bootstrap.Modal(document.getElementById('successModal'))
+                        successModal.show()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+        // File Upload Preview
+        document.getElementById('passbookFile').addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                const fileName = file.name;
+                const fileSize = (file.size / 1024 / 1024).toFixed(2); // Convert to MB
+                
+                document.getElementById('fileName').textContent = fileName;
+                document.getElementById('fileSize').textContent = `(${fileSize} MB)`;
+                document.getElementById('filePreview').classList.remove('d-none');
+            }
+        });
+
+        function removeFile() {
+            document.getElementById('passbookFile').value = '';
+            document.getElementById('filePreview').classList.add('d-none');
+        }
+
+        // Get Current Location
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        document.getElementById('latitude').value = position.coords.latitude.toFixed(6);
+                        document.getElementById('longitude').value = position.coords.longitude.toFixed(6);
+                        alert('Location coordinates fetched successfully!');
+                    },
+                    function(error) {
+                        alert('Unable to fetch location. Please enter manually.');
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        }
+
+        // Steps styling
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach(step => {
+                step.addEventListener('click', function() {
+                    steps.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadLayout() {
-    // 1. Define the Sidebar HTML
     const sidebarHTML = `
         <div class="sidebar-heading">
             <img src="assets/logo.jpeg" alt="Logo" class="logo-img">
@@ -26,10 +25,14 @@ function loadLayout() {
             <a href="imams.html" class="list-group-item list-group-item-action">
                 <i class="fas fa-user-check"></i> Imam Approvals
             </a>
+            <a href="member-categories.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-users-cog"></i> Member Categories
+            </a>
+            <a href="communities.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-sitemap"></i> Communities
+            </a>
         </div>
     `;
-
-    // 2. Define the Header HTML
     const headerHTML = `
         <nav class="navbar navbar-expand-lg navbar-custom px-3">
             <button class="btn btn-outline-success" id="menu-toggle">
