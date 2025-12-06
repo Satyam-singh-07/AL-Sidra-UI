@@ -31,6 +31,9 @@ function loadLayout() {
             <a href="communities.html" class="list-group-item list-group-item-action">
                 <i class="fas fa-sitemap"></i> Communities
             </a>
+            <a href="users.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-user"></i> Users
+            </a>
         </div>
     `;
     const headerHTML = `
