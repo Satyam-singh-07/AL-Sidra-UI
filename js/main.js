@@ -32,7 +32,7 @@ function loadLayout() {
                 <i class="fas fa-sitemap"></i> Communities
             </a>
             <a href="users.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-user"></i> Users
+                <i class="fas fa-users"></i> Users
             </a>
         </div>
     `;
