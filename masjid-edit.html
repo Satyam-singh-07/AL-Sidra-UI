@@ -214,6 +214,52 @@ Near Golf Course Metro Station</textarea>
                                 </div>
                             </div>
 
+                            <!-- Section 4: Masjid Images -->
+                            <div class="form-section">
+                                <h5><i class="fas fa-images me-2"></i>Masjid Images</h5>
+
+                                <!-- Existing Images -->
+                                <label class="form-label required-label">Current Images</label>
+                                <div class="row mb-3" id="existingImages">
+                                    <!-- Example existing images -->
+                                    <div class="col-md-3 mb-3 image-box" data-existing="1">
+                                        <div class="card position-relative">
+                                            <img src="assets/masjid1.jpg" class="card-img-top" style="height:150px; object-fit:cover;">
+                                            <button type="button"
+                                                    class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 remove-existing">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <input type="hidden" name="existing_images[]" value="masjid1.jpg">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Upload New Images -->
+                                <label class="form-label mt-2">
+                                    Add More Images (Max 5 total)
+                                </label>
+
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="masjidImages"
+                                    name="new_images[]"
+                                    accept="image/*"
+                                    multiple
+                                >
+
+                                <div class="invalid-feedback">
+                                    At least one image is required and maximum 5 images allowed.
+                                </div>
+
+                                <!-- New Images Preview -->
+                                <div class="row mt-3" id="newImagePreview"></div>
+
+                                <small class="text-muted">
+                                    Existing + new images together must be between 1 and 5.
+                                </small>
+                            </div>
+
                             <!-- New File Upload -->
                             <div class="col-md-12 mb-4">
                                 <label class="form-label">Update Passbook (Optional)</label>
@@ -463,5 +509,72 @@ Near Golf Course Metro Station</textarea>
             element.addEventListener('change', autoSave);
         });
     </script>
+    <script>
+const imageInput = document.getElementById('masjidImages');
+const newPreview = document.getElementById('newImagePreview');
+const existingContainer = document.getElementById('existingImages');
+const form = document.getElementById('masjidForm');
+
+function getExistingCount() {
+    return existingContainer.querySelectorAll('.image-box').length;
+}
+
+function getNewCount() {
+    return imageInput.files ? imageInput.files.length : 0;
+}
+
+// Remove existing image
+existingContainer.addEventListener('click', function (e) {
+    if (e.target.closest('.remove-existing')) {
+        const box = e.target.closest('.image-box');
+        box.remove();
+    }
+});
+
+// New image preview + limit check
+imageInput.addEventListener('change', function () {
+    newPreview.innerHTML = '';
+
+    const totalImages = getExistingCount() + getNewCount();
+
+    if (totalImages > 5) {
+        alert('Total images cannot exceed 5.');
+        imageInput.value = '';
+        return;
+    }
+
+    Array.from(this.files).forEach(file => {
+        if (!file.type.startsWith('image/')) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const col = document.createElement('div');
+            col.className = 'col-md-3 mb-3';
+
+            col.innerHTML = `
+                <div class="card">
+                    <img src="${e.target.result}" 
+                         class="card-img-top"
+                         style="height:150px; object-fit:cover;">
+                </div>
+            `;
+            newPreview.appendChild(col);
+        };
+        reader.readAsDataURL(file);
+    });
+});
+
+// Final validation on submit
+form.addEventListener('submit', function (e) {
+    const total = getExistingCount() + getNewCount();
+
+    if (total < 1 || total > 5) {
+        e.preventDefault();
+        e.stopPropagation();
+        alert('You must have at least 1 image and maximum 5 images.');
+    }
+});
+</script>
+
 </body>
 </html>

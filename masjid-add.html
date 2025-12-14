@@ -246,6 +246,36 @@
                         </div>
                     </div>
 
+                    <!-- Section 4: Masjid Images -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-images me-2"></i>Masjid Images</h5>
+
+                        <label class="form-label required-label">
+                            Upload Images (1 required, max 5)
+                        </label>
+
+                        <input 
+                            type="file"
+                            class="form-control"
+                            id="masjidImages"
+                            name="masjid_images[]"
+                            accept="image/*"
+                            multiple
+                            required
+                        >
+
+                        <div class="invalid-feedback">
+                            Please upload at least one image (maximum 5 allowed).
+                        </div>
+
+                        <!-- Preview -->
+                        <div class="row mt-3" id="imagePreview"></div>
+
+                        <small class="text-muted">
+                            JPG, PNG only. Max 5 images. Each image should be under 5MB.
+                        </small>
+                    </div>
+
                     <!-- Form Actions -->
                     <div class="form-section">
                         <div class="d-flex justify-content-between">
@@ -361,5 +391,43 @@
             });
         });
     </script>
+    <script>
+const imageInput = document.getElementById('masjidImages');
+const previewContainer = document.getElementById('imagePreview');
+
+imageInput.addEventListener('change', function () {
+    previewContainer.innerHTML = '';
+
+    const files = this.files;
+
+    // Hard stop: more than 5 images
+    if (files.length > 5) {
+        alert('You can upload a maximum of 5 images.');
+        this.value = '';
+        return;
+    }
+
+    // Preview images
+    Array.from(files).forEach(file => {
+        if (!file.type.startsWith('image/')) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const col = document.createElement('div');
+            col.className = 'col-md-3 mb-3';
+
+            col.innerHTML = `
+                <div class="card">
+                    <img src="${e.target.result}" class="card-img-top" style="height:150px; object-fit:cover;">
+                </div>
+            `;
+
+            previewContainer.appendChild(col);
+        };
+        reader.readAsDataURL(file);
+    });
+});
+</script>
+
 </body>
 </html>

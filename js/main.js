@@ -34,6 +34,9 @@ function loadLayout() {
             <a href="users.html" class="list-group-item list-group-item-action">
                 <i class="fas fa-users"></i> Users
             </a>
+            <a href="hot-topics.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-fire"></i> Hot Topics
+            </a>
             <a href="banners.html" class="list-group-item list-group-item-action">
                 <i class="fas fa-image"></i> Banners
             </a>
