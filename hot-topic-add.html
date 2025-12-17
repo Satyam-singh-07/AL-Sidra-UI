@@ -56,7 +56,7 @@
                 <!-- Topic Form -->
                 <div class="card shadow-sm border-0 form-container">
                     <div class="card-body p-4">
-                        <form action="#" method="post">
+                        <form action="#" method="post" enctype="multipart/form-data">
                             <!-- Image Upload Section -->
                             <div class="mb-4">
                                 <label class="form-label fw-bold">Topic Image</label>
@@ -70,6 +70,20 @@
                                 </div>
                                 <div class="text-center">
                                     <img id="imagePreview" class="image-preview" alt="Preview">
+                                </div>
+                            </div>
+
+                            <!-- Video Upload Section (Optional) -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Topic Video (Optional)</label>
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    name="topic_video"
+                                    accept="video/mp4,video/webm,video/ogg"
+                                >
+                                <div class="form-text">
+                                    Optional. Upload one video only. MP4 / WebM / OGG. Max 20MB.
                                 </div>
                             </div>
 

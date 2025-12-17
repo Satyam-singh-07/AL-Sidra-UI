@@ -5,43 +5,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadLayout() {
     const sidebarHTML = `
-        <div class="sidebar-heading">
-            <img src="assets/logo.jpeg" alt="Logo" class="logo-img">
-            AL SIDRA
-        </div>
-        <div class="list-group list-group-flush">
-            <a href="index.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-tachometer-alt"></i> Dashboard
-            </a>
-            <a href="quran.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-book-open"></i> Quran PDF
-            </a>
-            <a href="namaz.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-praying-hands"></i> Namaz Content
-            </a>
-            <a href="masjid.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-mosque"></i> Masjid Listing
-            </a>
-            <a href="imams.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-user-check"></i> Imam Approvals
-            </a>
-            <a href="member-categories.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-users-cog"></i> Member Categories
-            </a>
-            <a href="communities.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-sitemap"></i> Communities
-            </a>
-            <a href="users.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-users"></i> Users
-            </a>
-            <a href="hot-topics.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-fire"></i> Hot Topics
-            </a>
-            <a href="banners.html" class="list-group-item list-group-item-action">
-                <i class="fas fa-image"></i> Banners
-            </a>
-        </div>
-    `;
+    <div class="sidebar-heading">
+        <img src="assets/logo.jpeg" alt="Logo" class="logo-img">
+        AL SIDRA
+    </div>
+    <div class="list-group list-group-flush">
+        <a href="index.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="quran.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-book-open"></i> Quran PDF
+        </a>
+        <a href="namaz.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-praying-hands"></i> Namaz Content
+        </a>
+        <a href="masjid.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-mosque"></i> Masjid Listing
+        </a>
+        <a href="imams.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-user-check"></i> Imam Approvals
+        </a>
+        <a href="member-categories.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-users-cog"></i> Member Categories
+        </a>
+        <a href="communities.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-sitemap"></i> Communities
+        </a>
+        <a href="users.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-users"></i> Users
+        </a>
+        <a href="hot-topics.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-fire"></i> Hot Topics
+        </a>
+
+        <a href="ongoing-work.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-hard-hat"></i> Ongoing Work
+        </a>
+
+        <a href="banners.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-image"></i> Banners
+        </a>
+    </div>
+`;
+
     const headerHTML = `
         <nav class="navbar navbar-expand-lg navbar-custom px-3">
             <button class="btn btn-outline-success" id="menu-toggle">

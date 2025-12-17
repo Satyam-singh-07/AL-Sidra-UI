@@ -110,14 +110,26 @@
                         
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="masjidName" class="form-label required-label">Masjid/Madarsa Name</label>
+                                <label for="masjidName" class="form-label required-label">Masjid Name</label>
                                 <input type="text" class="form-control" id="masjidName" required 
                                        placeholder="Enter masjid or madarsa name">
                                 <div class="invalid-feedback">
                                     Please enter masjid name.
                                 </div>
                             </div>
-                            
+
+                            <div class="col-md-6 mb-3">
+                                <label for="gender" class="form-label required-label">Gender</label>
+                                <select class="form-select" id="gender" name="gender" required>
+                                    <option value="" selected disabled>Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select gender.
+                                </div>
+                            </div>
+
                             <!-- <div class="col-md-6 mb-3">
                                 <label for="masjidType" class="form-label required-label">Type</label>
                                 <select class="form-select" id="masjidType" required>
@@ -273,6 +285,20 @@
 
                         <small class="text-muted">
                             JPG, PNG only. Max 5 images. Each image should be under 5MB.
+                        </small>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label for="masjidVideo" class="form-label">Masjid Video (Optional)</label>
+                        <input
+                            type="file"
+                            class="form-control"
+                            id="masjidVideo"
+                            name="masjid_video"
+                            accept="video/mp4,video/webm,video/ogg"
+                        >
+                        <small class="text-muted">
+                            Only one video allowed. MP4 / WebM / OGG. Max 20MB.
                         </small>
                     </div>
 

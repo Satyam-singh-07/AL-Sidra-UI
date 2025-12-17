@@ -109,6 +109,18 @@
                                 </div>
                             </div>
                             
+                            <div class="col-md-6 mb-3">
+                                <label for="gender" class="form-label required-label">Gender</label>
+                                <select class="form-select" id="gender" name="gender" required>
+                                    <option value="" disabled>Select gender</option>
+                                    <option value="male" selected>Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select gender.
+                                </div>
+                            </div>
+
                             <div class="col-md-12 mb-3">
                                 <label for="address" class="form-label required-label">Complete Address</label>
                                 <textarea class="form-control" id="address" rows="3" required 
@@ -257,6 +269,21 @@ Near Golf Course Metro Station</textarea>
 
                                 <small class="text-muted">
                                     Existing + new images together must be between 1 and 5.
+                                </small>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="masjidVideo" class="form-label">Masjid Video (Optional)</label>
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="masjidVideo"
+                                    name="masjid_video"
+                                    accept="video/mp4,video/webm,video/ogg"
+                                >
+                                <small class="text-muted">
+                                    Upload only if you want to replace existing video.
+                                    MP4 / WebM / OGG. Max 20MB.
                                 </small>
                             </div>
 
