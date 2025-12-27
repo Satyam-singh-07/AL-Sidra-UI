@@ -9,42 +9,58 @@ function loadLayout() {
         <img src="assets/logo.jpeg" alt="Logo" class="logo-img">
         AL SIDRA
     </div>
-    <div class="list-group list-group-flush">
-        <a href="index.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-tachometer-alt"></i> Dashboard
-        </a>
-        <a href="quran.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-book-open"></i> Quran PDF
-        </a>
-        <a href="namaz.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-praying-hands"></i> Namaz Content
-        </a>
-        <a href="masjid.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-mosque"></i> Masjid Listing
-        </a>
-        <a href="imams.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-user-check"></i> Imam Approvals
-        </a>
-        <a href="member-categories.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-users-cog"></i> Member Categories
-        </a>
-        <a href="communities.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-sitemap"></i> Communities
-        </a>
-        <a href="users.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-users"></i> Users
-        </a>
-        <a href="hot-topics.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-fire"></i> Hot Topics
-        </a>
-
-        <a href="ongoing-work.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-hard-hat"></i> Ongoing Work
-        </a>
-
-        <a href="banners.html" class="list-group-item list-group-item-action">
-            <i class="fas fa-image"></i> Banners
-        </a>
+    <div class="sidebar-content">
+        <div class="list-group list-group-flush">
+            <a href="index.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+            <a href="quran.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-book-open"></i> Quran PDF
+            </a>
+            <a href="namaz.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-praying-hands"></i> Namaz Content
+            </a>
+            <a href="masjid.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-mosque"></i> Masjid Listing
+            </a>
+            <a href="imams.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-user-check"></i> Imam Approvals
+            </a>
+            <a href="member-categories.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-users-cog"></i> Member Categories
+            </a>
+            <a href="communities.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-sitemap"></i> Communities
+            </a>
+            <a href="users.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-users"></i> Users
+            </a>
+            <a href="hot-topics.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-fire"></i> Hot Topics
+            </a>
+            <a href="ongoing-work.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-hard-hat"></i> Ongoing Work
+            </a>
+            <a href="banners.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-image"></i> Banners
+            </a>
+            <a href="videos.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-video"></i> Video Management
+            </a>
+            <a href="religion-info.html" class="list-group-item list-group-item-action">
+                <i class="fas fa-info-circle"></i> Religion Info
+            </a>
+            <!-- Additional menu items if needed -->
+            <a href="#" class="list-group-item list-group-item-action">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <i class="fas fa-question-circle"></i> Help & Support
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <i class="fas fa-bell"></i> Notifications
+            </a>
+        </div>
     </div>
 `;
 
@@ -70,19 +86,16 @@ function loadLayout() {
         </nav>
     `;
 
-    // 3. Define Footer HTML
     const footerHTML = `
         <div class="container-fluid">
             <p class="mb-0">&copy; 2025 Vision X Digital Pvt. Ltd. | Al Sidra Admin Panel</p>
         </div>
     `;
 
-    // 4. Inject HTML into the placeholders
     document.getElementById("sidebar-wrapper").innerHTML = sidebarHTML;
     document.getElementById("header-container").innerHTML = headerHTML;
     document.getElementById("footer-container").innerHTML = footerHTML;
 
-    // 5. Initialize Sidebar Toggle functionality
     const toggleBtn = document.getElementById("menu-toggle");
     if(toggleBtn){
         toggleBtn.addEventListener('click', function(e) {
@@ -93,10 +106,7 @@ function loadLayout() {
 }
 
 function highlightCurrentPage() {
-    // Get current file name (e.g., "quran.html")
     const currentPage = window.location.pathname.split("/").pop();
-    
-    // Find the link that points to this page and add 'active' class
     const links = document.querySelectorAll('.list-group-item');
     links.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
